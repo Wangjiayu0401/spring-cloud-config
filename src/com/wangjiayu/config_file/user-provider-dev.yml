@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: user-provider
+  main:
+    allow-bean-definition-overriding: true
+
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://127.0.0.1:8011/eureka
+      defaultZone: http://127.0.0.1:8011/eureka,http://127.0.0.1:8012/eureka,http://127.0.0.1:8013/eureka
+
+server:
+  port: 8001
+
+
+mockdata:
+  users:
+    - id: 1
+      userName: bobo
+    - id: 2
+      userName: mimi
+    - id: 3
+      userName: timi
+    - id: 4
+      userName: mark
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+feign:
+  circuitbreaker:
+    enabled: true
+

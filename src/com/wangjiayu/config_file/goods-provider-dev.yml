@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: goods-provider
+
+server:
+  port: 8007
+
+eureka:
+  client:
+    service-url:
+      # defaultZone: http://127.0.0.1:8011/eureka
+      defaultZone: http://127.0.0.1:8011/eureka,http://127.0.0.1:8012/eureka,http://127.0.0.1:8013/eureka
+
+# 给actuator暴露 hystrix.stream 端点，dashboard可以收集数据
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+mock:
+  goods:
+    - id: 1
+      goodsName: 哈密瓜
+      price: 100.0
+    - id: 2
+      goodsName: 苹果
+      price: 200.0
+    - id: 3
+      goodsName: 丑橘
+      price: 300.0

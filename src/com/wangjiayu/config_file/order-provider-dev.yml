@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: order-provider
+
+eureka:
+  client:
+    service-url:
+      # defaultZone: http://127.0.0.1:8011/eureka
+      defaultZone: http://127.0.0.1:8011/eureka,http://127.0.0.1:8012/eureka,http://127.0.0.1:8013/eureka
+
+server:
+  port: 8004
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+mock:
+  orders:
+    - id: 1
+      orderId: 20210401GORDER0001
+      userId: 1
+      goodsId: 1
+    - id: 2
+      orderId: 20210401GORDER0002
+      userId: 2
+      goodsId: 2
+    - id: 3
+      orderId: 20210401GORDER0003
+      userId: 3
+      goodsId: 3
+    - id: 4
+      orderId: 20210401GORDER0004
+      userId: 4
+      goodsId: 1
+    - id: 5
+      orderId: 20210401GORDER0004
+      userId: 4
+      goodsId: 2
+    - id: 6
+      orderId: 20210401GORDER0005
+      userId: 4
+      goodsId: 3
